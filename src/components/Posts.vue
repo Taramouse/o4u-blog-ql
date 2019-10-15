@@ -1,7 +1,10 @@
 <template>
   <div class="posts">
     <div v-if="$apollo.queries.posts.loading">Loading...</div>
+    <div class="alert-error"
+         v-if="error">{{error}}</div>
     <div class="card"
+         v-else
          v-for="post in posts"
          :key="post.id">
       <h3 class="card-title text-primary">{{post.title}}</h3>
@@ -39,12 +42,16 @@ export default {
   name: 'Posts',
   apollo: {
     posts: {
-      query: GET_MY_POSTS
+      query: GET_MY_POSTS,
+      error (error) {
+        this.error = JSON.stringify(error.message)
+      }
     }
   },
   data () {
     return {
-      posts: []
+      posts: [],
+      error: null
     }
   },
   filters: {
