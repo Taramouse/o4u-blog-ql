@@ -1,13 +1,13 @@
 <template>
   <div class="posts">
-    <h1>Optimized4U Blog</h1>
+    <h1 class="title">Optimized4U Blog</h1>
     <div v-if="$apollo.queries.posts.loading">Loading...</div>
     <div class="card"
          v-for="post in posts"
          :key="post.id">
-      <h3 class="card-title">{{post.title}}</h3>
+      <h3 class="card-title text-primary">{{post.title}}</h3>
       <p class="card-content">{{post.content}}</p>
-      <div class="card-footer">
+      <div class="card-footer sub-title">
         <p>Created: {{post.timestamp | date}}</p>
         <p>Author: {{post.user.firstName}} {{post.user.lastName}}</p>
         <button class="btn-primary">Read Post</button>
