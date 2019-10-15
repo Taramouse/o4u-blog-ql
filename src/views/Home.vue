@@ -1,8 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Vue logo"
-         src="../assets/logo.png">
-    <h1 class="title">Optimized4U Blog</h1>
+    <img alt=")4U logo"
+         src="../assets/inline/cover.png"
+         width=600px
+         height="auto">
+    <h1 class="title">Blog</h1>
     <Posts />
   </div>
 </template>

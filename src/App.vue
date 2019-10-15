@@ -17,11 +17,12 @@ body {
   margin: 0;
 }
 #app {
+  /* Vars */
   --var-primary-color: hsl(240, 83%, 70%);
   --var-secondary-color: hsl(153, 47%, 49%);
   --var-grey-color: hsl(210, 29%, 24%);
   --var-o4u-red-color: hsl(0, 84%, 65%);
-  --var-o4u-blue-color: hsl(240, 95%, 65%);
+  --var-o4u-blue-color: hsl(206, 89%, 59%);
   --var-error-color: hsla(0, 90%, 50%);
   --var-level-1-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
@@ -47,6 +48,7 @@ body {
 #nav a.router-link-exact-active {
   color: var(--var-secondary-color);
 }
+/* Typography */
 .text-center {
   text-align: center;
 }
@@ -75,6 +77,7 @@ body {
 .sub-title {
   font-size: 0.7em;
 }
+/* Alert */
 .alert-error {
   display: block;
   padding: 10px;
@@ -82,6 +85,7 @@ body {
   background: var(--var-error-color);
   color: white;
 }
+/* Button */
 .btn-primary {
   background: var(--var-primary-color);
   color: white;
@@ -100,7 +104,7 @@ body {
 .btn-secondary:hover {
   /* TODO: hover */
 }
-
+/* Card */
 .card {
   border: 1px solid rgba(0, 0, 0, 0.23);
   padding: 1em;
