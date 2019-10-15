@@ -1,6 +1,5 @@
 <template>
   <div class="posts">
-    <h1 class="title">Optimized4U Blog</h1>
     <div v-if="$apollo.queries.posts.loading">Loading...</div>
     <div class="card"
          v-for="post in posts"
@@ -37,10 +36,7 @@ const GET_MY_POSTS = gql`
 `
 
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
+  name: 'Posts',
   apollo: {
     posts: {
       query: GET_MY_POSTS
@@ -60,13 +56,4 @@ export default {
 </script>
 
 <style>
-.posts .card {
-  border: 1px solid grey;
-  padding: 1em;
-  margin: 0.5em;
-  display: inline-block;
-}
-.posts .card .card-title {
-  font-size: 2em;
-}
 </style>

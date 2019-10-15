@@ -77,4 +77,13 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+.card {
+  border: 1px solid grey;
+  padding: 1em;
+  margin: 0.5em;
+  display: inline-block;
+}
+.card .card-title {
+  font-size: 2em;
+}
 </style>
