@@ -61,16 +61,17 @@ body {
 .text-grey {
   color: var(--var-grey-color);
 }
-.text-red {
+.text-o4u-red {
   color: var(--var-o4u-red-color);
 }
-.text-blue {
+.text-o4u-blue {
   color: var(--var-o4u-blue-color);
 }
 .text-error {
   color: var(--var-error-color);
 }
 .title {
+  margin-top: 0;
   font-size: 3.5em;
   font-weight: 200;
 }
@@ -110,6 +111,7 @@ body {
   padding: 1em;
   margin: 0.5em;
   display: inline-block;
+  max-width: 350px;
   box-shadow: var(--var-level-1-shadow);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -129,5 +131,17 @@ body {
 }
 .level-3 {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+/* Misc */
+.branding {
+  display: inline-block;
+}
+/* Screen breaks */
+@media only screen and (min-width: 600px) {
+  .branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
