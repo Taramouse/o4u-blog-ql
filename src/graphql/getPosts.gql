@@ -1,0 +1,12 @@
+query getPosts($limit: Int) {
+    posts(limit: $limit) {
+      id
+      title
+      content
+      timestamp
+      user {
+        firstName
+        lastName
+      }
+    }
+  }

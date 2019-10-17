@@ -1,22 +1,26 @@
 <template>
   <div class="posts">
-    <div v-if="$apollo.queries.posts.loading">Loading...</div>
-    <div class="alert-error"
-         v-if="error">{{error}}</div>
-    <div class="card"
-         v-else
-         v-for="post in posts"
-         :key="post.id">
-      <h3 class="card-title text-primary">{{post.title}}</h3>
-      <p class="card-content">{{post.content}}</p>
-      <div class="card-footer sub-title">
-        <p>Created: {{post.timestamp | date}}</p>
-        <p>Author: {{post.user.firstName}} {{post.user.lastName}}</p>
-        <button class="btn-primary"
-                @click="getPost(post.id)">Read Post</button>
-      </div>
-
-    </div>
+    <ApolloQuery :query="require('@/graphql/getPosts.gql')"
+                 :variables="{limit: limit}">
+      <template slot-scope="{result: {data, error, loading}}">
+        <div v-if="loading">Loading...</div>
+        <div class="alert-error"
+             v-else-if="error">{{error}}</div>
+        <div class="card"
+             v-else-if="data"
+             v-for="post in data.posts"
+             :key="post.id">
+          <h3 class="card-title text-primary">{{post.title}}</h3>
+          <p class="card-content">{{post.content}}</p>
+          <div class="card-footer sub-title">
+            <p>Created: {{post.timestamp | date}}</p>
+            <p>Author: {{post.user.firstName}} {{post.user.lastName}}</p>
+            <button class="btn-primary"
+                    @click="getPost(post.id)">Read Post</button>
+          </div>
+        </div>
+      </template>
+    </ApolloQuery>
   </div>
 </template>
 
@@ -24,40 +28,13 @@
 import gql from 'graphql-tag'
 import moment from 'moment'
 
-const GET_MY_POSTS = gql`
-  query getPosts($limit: Int) {
-    posts(limit: $limit) {
-      id
-      title
-      content
-      timestamp
-      user {
-        firstName
-        lastName
-      }
-    }
-  }
-`
-
 export default {
   name: 'posts',
-  apollo: {
-    posts: {
-      query: GET_MY_POSTS,
-      variables () {
-        return {
-          limit: this.limit
-        }
-      },
-      error (error) {
-        this.error = JSON.stringify(error.message)
-      }
-    }
-  },
   data () {
     return {
       posts: [],
       error: null,
+      loading: 0,
       limit: 3
     }
   },
