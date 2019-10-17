@@ -25,8 +25,8 @@ import gql from 'graphql-tag'
 import moment from 'moment'
 
 const GET_MY_POSTS = gql`
-  query getPosts {
-    posts {
+  query getPosts($limit: Int) {
+    posts(limit: $limit) {
       id
       title
       content
@@ -40,10 +40,15 @@ const GET_MY_POSTS = gql`
 `
 
 export default {
-  name: 'Posts',
+  name: 'posts',
   apollo: {
     posts: {
       query: GET_MY_POSTS,
+      variables () {
+        return {
+          limit: this.limit
+        }
+      },
       error (error) {
         this.error = JSON.stringify(error.message)
       }
@@ -52,7 +57,8 @@ export default {
   data () {
     return {
       posts: [],
-      error: null
+      error: null,
+      limit: 3
     }
   },
   filters: {
