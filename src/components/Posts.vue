@@ -12,7 +12,8 @@
       <div class="card-footer sub-title">
         <p>Created: {{post.timestamp | date}}</p>
         <p>Author: {{post.user.firstName}} {{post.user.lastName}}</p>
-        <button class="btn-primary">Read Post</button>
+        <button class="btn-primary"
+                @click="getPost(post.id)">Read Post</button>
       </div>
 
     </div>
@@ -57,6 +58,11 @@ export default {
   filters: {
     date: function (date) {
       return moment(date).format('MMMM Do YYYY, h:mm:ss a')
+    }
+  },
+  methods: {
+    getPost (postId) {
+      this.$router.push({ name: 'post', params: { id: postId } })
     }
   }
 }
