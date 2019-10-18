@@ -11,10 +11,10 @@
              v-for="post in data.posts"
              :key="post.id">
           <h3 class="card-title text-primary">{{post.title}}</h3>
-          <p class="card-content">{{post.content}}</p>
+          <p class="card-content text-left">{{post.content}}</p>
           <div class="card-footer sub-title">
-            <p>Created: {{post.timestamp | date}}</p>
-            <p>Author: {{post.user.firstName}} {{post.user.lastName}}</p>
+            <p class="text-left">Created: {{post.timestamp | date}}</p>
+            <p class="text-left">Author: {{post.user.firstName}} {{post.user.lastName}}</p>
             <button class="btn-primary"
                     @click="getPost(post.id)">Read Post</button>
           </div>
@@ -32,7 +32,7 @@ export default {
       posts: [],
       error: null,
       loading: 0,
-      limit: 3
+      limit: 10
     }
   },
   methods: {
