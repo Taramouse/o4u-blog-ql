@@ -28,6 +28,7 @@ const GET_POST = gql`
 
 export default {
   name: 'post',
+  // TODO: Work out correct way to get single post without console errors.
   apollo: {
     posts: {
       query: GET_POST,
