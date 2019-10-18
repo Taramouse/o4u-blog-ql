@@ -1,5 +1,5 @@
 query getPosts($limit: Int) {
-  posts(limit: $limit) {
+  posts(limit: $limit, order_by: {timestamp: desc}) {
     id
     title
     content
