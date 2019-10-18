@@ -2,6 +2,8 @@
   <div class="post">
     <h1>{{posts[0].title}}</h1>
     <p>{{posts[0].content}}</p>
+    <p>Created: {{posts[0].timestamp | datetime}}</p>
+    <p>Author: {{posts[0].user.firstName}} {{posts[0].user.lastName}}</p>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ const GET_POST = gql`
       id
       title
       content
+      timestamp
       user {
         firstName
         lastName
