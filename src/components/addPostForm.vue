@@ -6,14 +6,14 @@
              for="title">Title</label>
       <input class="input-title"
              type="text"
-             placeholder="title"
+             placeholder="Post Title"
              name="title"
              v-model="title">
       <label class="text-left"
              for="content">Content</label>
       <textarea class="input-content"
                 type="text"
-                placeholder="content"
+                placeholder="Post Content"
                 name="content"
                 v-model="content">
       </textarea>
@@ -82,7 +82,8 @@ export default {
   margin-bottom: 2em;
 }
 .add-post-form .form .input-content {
-  font-size: 1.5em;
+  font-family: "Raleway", sans-serif, Verdana, Geneva, Arial;
+  font-size: 1.3em;
   width: auto;
   height: 300px;
   margin-bottom: 2em;
