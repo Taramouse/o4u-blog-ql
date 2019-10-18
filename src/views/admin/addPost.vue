@@ -1,18 +1,17 @@
 <template>
   <div class="add-post">
     Add New Post
+    <AddPostForm />
   </div>
 </template>
 
 <script>
+import AddPostForm from '@/components/addPostForm'
+
 export default {
   name: 'addPost',
-  data () {
-    return {
-      title: '',
-      content: '',
-      user: { id: 'google-12132324323' }
-    }
+  components: {
+    AddPostForm
   }
 }
 </script>
