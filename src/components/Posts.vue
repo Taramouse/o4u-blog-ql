@@ -38,11 +38,6 @@ export default {
       limit: 3
     }
   },
-  filters: {
-    date: function (date) {
-      return moment(date).format('MMMM Do YYYY, h:mm:ss a')
-    }
-  },
   methods: {
     getPost (postId) {
       this.$router.push({ name: 'post', params: { id: postId } })
