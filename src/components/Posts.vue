@@ -25,9 +25,6 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
-import moment from 'moment'
-
 export default {
   name: 'posts',
   data () {
