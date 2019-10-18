@@ -54,6 +54,9 @@ body {
 .text-center {
   text-align: center;
 }
+.text-left {
+  text-align: left;
+}
 .text-primary {
   color: var(--var-primary-color);
 }
@@ -112,7 +115,7 @@ body {
   padding: 1em;
   margin: 0.5em;
   display: inline-block;
-  max-width: 350px;
+  width: 312px;
   box-shadow: var(--var-level-1-shadow);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
