@@ -16,14 +16,14 @@ Vue.config.productionTip = false
 
 const getHeaders = () => {
   const headers = {
-    'x-hasura-admin-secret': 'Lottie%231966',
+    'x-hasura-admin-secret': process.env.VUE_APP_SECRET,
     'content-type': 'application/json'
   }
   return headers
 }
 // Create an http link:
 const link = new HttpLink({
-  uri: 'http://devserver:8080/v1/graphql',
+  uri: process.env.VUE_APP_URL,
   fetch,
   headers: getHeaders()
 })
