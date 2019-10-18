@@ -1,33 +1,44 @@
 <template>
-  <form class="add-post-form"
-        @submit.prevent="submit">
-    <fieldset class="form">
-      <label class="text-left"
-             for="title">Title</label>
-      <input class="input-title"
-             type="text"
-             placeholder="Post Title"
-             name="title"
-             v-model="title">
-      <label class="text-left"
-             for="content">Content</label>
-      <textarea class="input-content"
-                type="text"
-                placeholder="Post Content"
-                name="content"
-                v-model="content">
+  <form id="form"
+        class="add-post-form">
+    <ApolloMutation :mutation="require('@/graphql/addPost.gql')"
+                    :variables="{title, content, userId: currentUser}"
+                    @done="handleDone">
+      <template slot-scope="{ mutate, loading, error }">
+        <div v-if="loading">loading...</div>
+        <div v-else-if="error">{{error}}</div>
+        <fieldset class="form">
+          <label class="text-left"
+                 for="title">Title</label>
+          <input class="input-title"
+                 type="text"
+                 placeholder="Post Title"
+                 name="title"
+                 v-model="title"
+                 required>
+          <label class="text-left"
+                 for="content">Content</label>
+          <textarea class="input-content"
+                    type="text"
+                    placeholder="Post Content"
+                    name="content"
+                    v-model="content"
+                    required>
       </textarea>
-      <label class="text-left"
-             for="user">User ID</label>
-      <input class="input-user"
-             type="text"
-             placeholder=""
-             name="user"
-             v-model="currentUser"
-             disabled>
-      <button class="btn-primary"
-              type="submit">Submit</button>
-    </fieldset>
+          <label class="text-left"
+                 for="user">User ID</label>
+          <input class="input-user"
+                 type="text"
+                 placeholder=""
+                 name="user"
+                 v-model="currentUser"
+                 disabled>
+          <button class="btn-primary"
+                  :disabled="currentUser === ''"
+                  @click="mutate()">Save</button>
+        </fieldset>
+      </template>
+    </ApolloMutation>
   </form>
 </template>
 
@@ -38,25 +49,14 @@ export default {
     return {
       title: '',
       content: '',
-      currentUser: 'google-12132324323'
+      currentUser: 'google-12132324323',
+      error: null,
+      loading: 0
     }
   },
   methods: {
-    submit (e) {
-      const { title, content, currentUser: userId } = this
-      this.$apollo.mutate({
-        mutation: require('@/graphql/addPost.gql'),
-        variables: {
-          title,
-          content,
-          userId
-        },
-        refetchQueries: ['getPosts']
-      }).then(data => {
-        console.log(data)
-      }).catch(error => {
-        console.log(error)
-      })
+    handleDone () {
+      document.getElementById('form').reset()
     }
   }
 }
