@@ -25,6 +25,7 @@ body {
   --var-grey-color: hsl(210, 29%, 24%);
   --var-o4u-red-color: hsl(0, 84%, 65%);
   --var-o4u-blue-color: hsl(206, 89%, 59%);
+  --var-success-color: hsl(120, 46%, 77%);
   --var-error-color: hsla(0, 90%, 50%);
   --var-level-1-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
@@ -89,6 +90,13 @@ body {
   border-radius: 10px;
   background: var(--var-error-color);
   color: white;
+}
+.alert-success {
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--var-success-color);
+  color: green;
 }
 /* Button */
 .btn-primary {
