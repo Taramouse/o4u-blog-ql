@@ -1,46 +1,34 @@
 <template>
   <div class="post">
-    <h1>{{posts[0].title}}</h1>
-    <p>{{posts[0].content}}</p>
-    <p>Created: {{posts[0].timestamp | datetime}}</p>
-    <p>Author: {{posts[0].user.firstName}} {{posts[0].user.lastName}}</p>
+    <ApolloQuery :query="require('@/graphql/getPost.gql')"
+                 :variables="{postId: postId}">
+      <template slot-scope="{result: {data, error, loading}}">
+        <div v-if="loading">Loading...</div>
+        <div class="alert-error"
+             v-else-if="error">{{error}}</div>
+        <div v-else-if="data"
+             v-for="post in data.posts"
+             :key="post.id">
+          <h1 class="title">{{post.title}}</h1>
+          <img src="https://placeimg.com/900/400/tech"
+               alt="placeholder">
+          <p>{{post.content}}</p>
+          <p>Created on {{post.timestamp | date('DD MMMM YYYY')}}</p>
+          <p>Author {{post.user.firstName}} {{post.user.lastName}}</p>
+        </div>
+      </template>
+    </ApolloQuery>
   </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
-// import moment from 'moment'
-
-const GET_POST = gql`
-  query getPost {
-    posts(where: {id: {_eq: "83557d4a-45d2-45e1-aa56-ea6d02f99968"}}) {
-      id
-      title
-      content
-      timestamp
-      user {
-        firstName
-        lastName
-      }
-    }
-  }
-  `
-
 export default {
   name: 'post',
-  // TODO: Work out correct way to get single post without console errors.
-  apollo: {
-    posts: {
-      query: GET_POST,
-      error (error) {
-        this.error = JSON.stringify(error.message)
-      }
-    }
-  },
   data () {
     return {
       posts: [],
       postId: this.$route.params.id,
+      loading: 0,
       error: null
     }
   }

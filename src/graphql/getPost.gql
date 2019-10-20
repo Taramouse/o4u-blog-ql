@@ -1,0 +1,12 @@
+query getPost($postId: uuid) {
+    posts(where: {id: {_eq: $postId}}) {
+      id
+      title
+      content
+      timestamp
+      user {
+        firstName
+        lastName
+      }
+    }
+  }
