@@ -46,7 +46,7 @@
               </div>
             </template>
           </ApolloQuery>
-          <button class="btn-primary"
+          <button class="btn btn-primary"
                   :disabled="currentUser === ''"
                   @click.prevent="mutate()">Save</button>
         </div>
