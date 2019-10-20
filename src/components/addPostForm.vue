@@ -31,9 +31,9 @@
                  for="user">Author</label>
           <ApolloQuery :query="require('@/graphql/getUsers.gql')">
             <template slot-scope="{result: {data, loading, error}}">
-              <div v-if="loading">Loading Users</div>
+              <div v-if="loading">Loading Users...</div>
               <div v-else-if="error"
-                   class="alert-error"></div>
+                   class="alert-error">{{error}}</div>
               <div v-else-if="data"
                    class="custom-select">
                 <select v-model="currentUser">
