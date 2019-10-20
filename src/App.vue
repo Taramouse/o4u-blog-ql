@@ -27,6 +27,7 @@ body {
   --var-o4u-blue-color: hsl(206, 89%, 59%);
   --var-success-color: hsl(120, 46%, 77%);
   --var-error-color: hsla(0, 90%, 50%);
+  --var-warning-color: hsl(25, 75%, 50%);
   --var-level-1-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -99,11 +100,14 @@ body {
   color: green;
 }
 /* Button */
+.btn {
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
 .btn-primary {
   background: var(--var-primary-color);
   color: white;
-  padding: 10px;
-  cursor: pointer;
 }
 .btn-primary:hover {
   /* TODO: hover */
@@ -111,10 +115,22 @@ body {
 .btn-secondary {
   background: var(--var-secondary-color);
   color: white;
-  padding: 10px;
-  cursor: pointer;
 }
 .btn-secondary:hover {
+  /* TODO: hover */
+}
+.btn-error {
+  background: var(--var-error-color);
+  color: white;
+}
+.btn-error:hover {
+  /* TODO: hover */
+}
+.btn-warning {
+  background: var(--var-warning-color);
+  color: white;
+}
+.btn-warning:hover {
   /* TODO: hover */
 }
 /* Card */
