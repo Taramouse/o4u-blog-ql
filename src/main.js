@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import VueDateFns from 'vue-date-fns'
+import { dateFilter } from 'vue-date-fns'
 
 import VueApollo from 'vue-apollo'
 
@@ -9,7 +9,7 @@ import ApolloClient from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
-Vue.use(VueDateFns)
+Vue.filter('date', dateFilter)
 Vue.use(VueApollo)
 
 Vue.config.productionTip = false
