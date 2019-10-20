@@ -28,13 +28,24 @@
                     required>
           </textarea>
           <label class="text-left"
-                 for="user">User ID</label>
-          <input class="input-user"
-                 type="text"
-                 placeholder=""
-                 name="user"
-                 v-model="currentUser"
-                 disabled>
+                 for="user">Author</label>
+          <ApolloQuery :query="require('@/graphql/getUsers.gql')">
+            <template slot-scope="{result: {data, loading, error}}">
+              <div v-if="loading">Loading Users</div>
+              <div v-else-if="error"
+                   class="alert-error"></div>
+              <div v-else-if="data"
+                   class="custom-select">
+                <select v-model="currentUser">
+                  <option disabled
+                          value="">Select User</option>
+                  <option v-for="user in data.users"
+                          :key="user.id"
+                          :value="user.id">{{`${user.firstName} ${user.lastName}`}}</option>
+                </select>
+              </div>
+            </template>
+          </ApolloQuery>
           <button class="btn-primary"
                   :disabled="currentUser === ''"
                   @click.prevent="mutate()">Save</button>
@@ -51,7 +62,7 @@ export default {
     return {
       title: '',
       content: '',
-      currentUser: 'google-12132324323',
+      currentUser: '',
       error: null,
       loading: 0,
       success: false
@@ -88,12 +99,21 @@ export default {
   font-family: "Raleway", sans-serif, Verdana, Geneva, Arial;
   font-size: 1.3em;
   width: auto;
-  height: 300px;
+  height: 250px;
   margin-bottom: 2em;
 }
-.add-post-form .form .input-user {
-  border: none;
-  font-size: 0.7em;
+.add-post-form .form .custom-select {
+  display: relative;
+  text-align: left;
+  padding: 10px 0;
   margin-bottom: 2em;
+  font-family: "Raleway", sans-serif, Verdana, Geneva, Arial;
+}
+.add-post-form .form .custom-select > select {
+  width: 200px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
 }
 </style>
