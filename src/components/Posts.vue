@@ -10,6 +10,8 @@
              v-else-if="data"
              v-for="post in data.posts"
              :key="post.id">
+          <img src="https://placeimg.com/300/200/tech"
+               alt="placeholder">
           <h3 class="card-title text-primary">{{post.title}}</h3>
           <p class="card-content text-left">{{post.content}}</p>
           <div class="card-footer sub-title">
