@@ -7,7 +7,9 @@
       <template slot-scope="{ mutate, loading, error }">
         <div v-if="loading">loading...</div>
         <div v-else-if="error">{{error}}</div>
-        <fieldset class="form">
+        <div v-if="success"
+             class="alert-success">Post saved.</div>
+        <div class="form">
           <label class="text-left"
                  for="title">Title</label>
           <input class="input-title"
@@ -24,7 +26,7 @@
                     name="content"
                     v-model="content"
                     required>
-      </textarea>
+          </textarea>
           <label class="text-left"
                  for="user">User ID</label>
           <input class="input-user"
@@ -35,8 +37,8 @@
                  disabled>
           <button class="btn-primary"
                   :disabled="currentUser === ''"
-                  @click="mutate()">Save</button>
-        </fieldset>
+                  @click.prevent="mutate()">Save</button>
+        </div>
       </template>
     </ApolloMutation>
   </form>
@@ -51,12 +53,13 @@ export default {
       content: '',
       currentUser: 'google-12132324323',
       error: null,
-      loading: 0
+      loading: 0,
+      success: false
     }
   },
   methods: {
     handleDone () {
-      document.getElementById('form').reset()
+      this.success = true
     }
   }
 }
