@@ -15,7 +15,7 @@
           <h3 class="card-title text-primary">{{post.title}}</h3>
           <p class="card-content text-left">{{post.content}}</p>
           <div class="card-footer sub-title">
-            <p class="text-left">Created: {{post.timestamp | date}}</p>
+            <p class="text-left">Created: {{post.timestamp | date('DD MMMM YYYY')}}</p>
             <p class="text-left">Author: {{post.user.firstName}} {{post.user.lastName}}</p>
             <button class="btn-primary"
                     @click="getPost(post.id)">Read Post</button>
