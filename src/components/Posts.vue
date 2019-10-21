@@ -55,7 +55,7 @@ export default {
         },
         refetchQueries: ['getPosts']
       }).catch(error => {
-        console.log(error)
+        this.error = error
       })
     }
   }
