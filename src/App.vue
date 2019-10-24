@@ -164,6 +164,43 @@ body {
 .branding {
   display: inline-block;
 }
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  justify-content: center;
+  border: none;
+}
+.form .input-title {
+  border: none;
+  border-bottom: 1px solid green;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+}
+.form .input-content {
+  font-family: "Raleway", sans-serif, Verdana, Geneva, Arial;
+  font-size: 1.3em;
+  width: auto;
+  height: 250px;
+  margin-bottom: 2em;
+}
+.form .custom-select {
+  display: relative;
+  text-align: left;
+  padding: 10px 0;
+  margin-bottom: 2em;
+  font-family: "Raleway", sans-serif, Verdana, Geneva, Arial;
+}
+.form .custom-select > select {
+  width: 200px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+}
 /* Screen breaks */
 @media only screen and (min-width: 600px) {
   .branding {
