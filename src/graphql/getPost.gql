@@ -5,6 +5,7 @@ query getPost($postId: uuid) {
       content
       timestamp
       user {
+        id
         firstName
         lastName
       }
