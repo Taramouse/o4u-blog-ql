@@ -18,7 +18,8 @@
             <p class="text-left">Created: {{post.timestamp | date('DD MMMM YYYY')}}</p>
             <p class="text-left">Author: {{post.user.firstName}} {{post.user.lastName}}</p>
             <button class="btn btn-warning"
-                    v-if="isAdmin">Edit Post</button>
+                    v-if="isAdmin"
+                    @click="editPost(post.id)">Edit Post</button>
             <button class="btn btn-error"
                     v-if="isAdmin"
                     @click="deletePost(post.id)">Delete</button>
@@ -39,13 +40,16 @@ export default {
       posts: [],
       error: null,
       loading: 0,
-      limit: 10,
+      limit: 6,
       isAdmin: true
     }
   },
   methods: {
     getPost (postId) {
       this.$router.push({ name: 'post', params: { id: postId } })
+    },
+    editPost (postId) {
+      this.$router.push({ name: 'editPost', params: { id: postId } })
     },
     deletePost (postId) {
       this.$apollo.mutate({

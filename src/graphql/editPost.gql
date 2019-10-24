@@ -1,0 +1,11 @@
+mutation editPost($postId: uuid, $title: String, $content: String, $currentUser: String) {
+  update_posts(_set: {
+    title: $title,
+    content: $content,
+    userid: $currentUser
+    } where: {
+      id: {_eq: $postId}
+    }) {
+    affected_rows
+  }
+}
