@@ -22,26 +22,22 @@ export default new Router({
     {
       path: '/blog',
       name: 'blog',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "blog" */ './views/Blog.vue')
     },
     {
       path: '/post/:id',
       name: 'post',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "post" */ './views/Post.vue')
     },
     {
       path: '/admin/add-post',
       name: 'addPost',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "addPost" */ './views/admin/addPost.vue')
+    },
+    {
+      path: '/admin/editPost/:id',
+      name: 'editPost',
+      component: () => import(/* webpackChunkName: "editPost" */ './views/admin/editPost.vue')
     }
   ]
 })
