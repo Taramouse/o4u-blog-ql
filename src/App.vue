@@ -105,33 +105,24 @@ body {
   cursor: pointer;
   margin: 0 5px;
 }
+.btn:hover {
+  opacity: 0.85;
+}
 .btn-primary {
   background: var(--var-primary-color);
   color: white;
-}
-.btn-primary:hover {
-  /* TODO: hover */
 }
 .btn-secondary {
   background: var(--var-secondary-color);
   color: white;
 }
-.btn-secondary:hover {
-  /* TODO: hover */
-}
 .btn-error {
   background: var(--var-error-color);
   color: white;
 }
-.btn-error:hover {
-  /* TODO: hover */
-}
 .btn-warning {
   background: var(--var-warning-color);
   color: white;
-}
-.btn-warning:hover {
-  /* TODO: hover */
 }
 /* Card */
 .card {
