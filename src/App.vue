@@ -106,7 +106,7 @@ body {
   margin: 0 5px;
 }
 .btn:hover {
-  opacity: 0.85;
+  opacity: 0.75;
 }
 .btn-primary {
   background: var(--var-primary-color);
@@ -142,7 +142,7 @@ body {
   flex-basis: 20%;
   position: relative;
   width: 312px;
-  height: 500px;
+  height: 480px;
   box-shadow: var(--var-level-1-shadow);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -157,6 +157,7 @@ body {
   overflow: hidden;
 }
 .card .card-footer {
+  display: flex;
   justify-content: space-around;
 }
 .card .card-actions {

@@ -17,8 +17,8 @@
           <h3 class="card-title text-primary">{{post.title}}</h3>
           <p class="card-content text-left">{{post.content}}</p>
           <div class="card-footer sub-title">
-            <p class="text-left">Created: {{post.timestamp | date('DD MMMM YYYY')}}</p>
-            <p class="text-left">Author: {{post.user.firstName}} {{post.user.lastName}}</p>
+            <span>Created: {{post.timestamp | date('DD MMMM YYYY')}}</span>
+            <span>Author: {{post.user.firstName}} {{post.user.lastName}}</span>
           </div>
           <div class="card-actions">
             <button class="btn btn-warning"
