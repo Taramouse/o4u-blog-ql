@@ -1,7 +1,9 @@
 <template>
-  <div class="posts">
+  <div class="container"
+       id="posts">
     <ApolloQuery :query="require('@/graphql/getPosts.gql')"
-                 :variables="{limit: limit}">
+                 :variables="{limit: limit}"
+                 class="grid-row">
       <template slot-scope="{result: {data, error, loading}}">
         <div v-if="loading">Loading...</div>
         <div class="alert-error"
@@ -17,6 +19,8 @@
           <div class="card-footer sub-title">
             <p class="text-left">Created: {{post.timestamp | date('DD MMMM YYYY')}}</p>
             <p class="text-left">Author: {{post.user.firstName}} {{post.user.lastName}}</p>
+          </div>
+          <div class="card-actions">
             <button class="btn btn-warning"
                     v-if="isAdmin"
                     @click="editPost(post.id)">Edit Post</button>
