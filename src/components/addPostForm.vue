@@ -22,11 +22,17 @@
                  for="content">Content</label>
           <textarea class="input-content"
                     type="text"
-                    placeholder="Post Content"
+                    placeholder="Post Conent"
                     name="content"
                     v-model="content"
                     required>
           </textarea>
+          <input class="input-slug"
+                 type="text"
+                 placeholder=""
+                 name="slug"
+                 :value="slug"
+                 disabled>
           <label class="text-left"
                  for="user">Author</label>
           <ApolloQuery :query="require('@/graphql/getUsers.gql')">
@@ -56,6 +62,8 @@
 </template>
 
 <script>
+import slug from 'slug'
+
 export default {
   name: 'addPostForm',
   data () {
@@ -66,6 +74,11 @@ export default {
       error: null,
       loading: 0,
       success: false
+    }
+  },
+  computed: {
+    slug () {
+      return slug(this.title, ({ lower: true }))
     }
   },
   methods: {
