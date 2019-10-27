@@ -1,7 +1,7 @@
 <template>
   <div id="post">
-    <ApolloQuery :query="require('@/graphql/getPost.gql')"
-                 :variables="{postId: postId}">
+    <ApolloQuery :query="require('@/graphql/getPostBySlug.gql')"
+                 :variables="{postSlug: postSlug}">
       <template slot-scope="{result: {data, error, loading}}">
         <div v-if="loading">Loading...</div>
         <div class="alert-error"
@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       posts: [],
-      postId: this.$route.params.id,
+      postSlug: this.$route.params.slug,
       loading: 0,
       error: null
     }

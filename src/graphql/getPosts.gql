@@ -3,6 +3,7 @@ query getPosts($limit: Int) {
     id
     title
     content
+    slug
     timestamp
     user {
       firstName

@@ -1,0 +1,14 @@
+query getPostBySlug($postSlug: String) {
+    posts(where: {slug: {_eq: $postSlug}}) {
+      id
+      title
+      content
+      slug
+      timestamp
+      user {
+        id
+        firstName
+        lastName
+      }
+    }
+  }

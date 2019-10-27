@@ -29,7 +29,7 @@
                     v-if="isAdmin"
                     @click="deletePost(post.id)">Delete</button>
             <button class="btn btn-primary"
-                    @click="getPost(post.id)">Read Post</button>
+                    @click="getPost(post.slug)">Read Post</button>
           </div>
         </div>
       </template>
@@ -50,8 +50,8 @@ export default {
     }
   },
   methods: {
-    getPost (postId) {
-      this.$router.push({ name: 'post', params: { id: postId } })
+    getPost (postSlug) {
+      this.$router.push({ name: 'post', params: { slug: postSlug } })
     },
     editPost (postId) {
       this.$router.push({ name: 'editPost', params: { id: postId } })
