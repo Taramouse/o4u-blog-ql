@@ -24,6 +24,7 @@ body {
   /* Vars */
   --var-primary-color: hsl(240, 83%, 70%);
   --var-secondary-color: hsl(153, 47%, 49%);
+  --var-lightgrey-color: hsl(0, 0%, 83%);
   --var-grey-color: hsl(210, 29%, 24%);
   --var-o4u-red-color: hsl(0, 84%, 65%);
   --var-o4u-blue-color: hsl(206, 89%, 59%);
@@ -97,6 +98,11 @@ body {
 }
 .btn:hover {
   opacity: 0.75;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  border: none;
+  background: var(--var-lightgrey-color);
 }
 .btn-primary {
   background: var(--var-primary-color);
