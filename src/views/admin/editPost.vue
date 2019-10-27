@@ -18,6 +18,7 @@
                    type="text"
                    name="title"
                    v-model="post.title"
+                   @keyup="updateSlug(post.title)"
                    required>
             <label class="text-left"
                    for="content">Content</label>
@@ -27,6 +28,12 @@
                       v-model="post.content"
                       required>
           </textarea>
+            <input class="input-slug"
+                   type="text"
+                   :placeholder="post.slug"
+                   name="slug"
+                   :value="slug"
+                   disabled>
             <label class="text-left"
                    for="user">Author</label>
             <ApolloQuery :query="require('@/graphql/getUsers.gql')">
@@ -57,6 +64,8 @@
 </template>
 
 <script>
+import slug from 'slug'
+
 export default {
   name: 'editPost',
   data () {
@@ -64,12 +73,16 @@ export default {
       postId: this.$route.params.id,
       posts: {},
       currentUser: '',
+      slug: '',
       error: null,
       loading: 0,
       success: false
     }
   },
   methods: {
+    updateSlug (title) {
+      this.slug = slug(title, ({ lower: true }))
+    },
     editPost (postId, postTitle, postContent) {
       this.$apollo.mutate({
         mutation: require('@/graphql/editPost.gql'),
@@ -77,6 +90,7 @@ export default {
           postId: postId,
           title: postTitle,
           content: postContent,
+          slug: this.slug,
           currentUser: this.currentUser
         },
         refetchQueries: ['getPosts']

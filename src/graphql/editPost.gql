@@ -1,7 +1,8 @@
-mutation editPost($postId: uuid, $title: String, $content: String, $currentUser: String) {
+mutation editPost($postId: uuid, $title: String, $content: String, $slug: String, $currentUser: String) {
   update_posts(_set: {
     title: $title,
     content: $content,
+    slug: $slug,
     userid: $currentUser
     } where: {
       id: {_eq: $postId}
