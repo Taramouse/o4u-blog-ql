@@ -1,5 +1,7 @@
 # o4u-blog-ql
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4dd6f6db50d149d6bb8b666ee31d3995)](https://www.codacy.com/manual/Taramouse/o4u-blog-ql?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Taramouse/o4u-blog-ql&amp;utm_campaign=Badge_Grade)
+
 ## Project setup
 ```shell
 yarn install
