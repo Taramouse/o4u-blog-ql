@@ -10,7 +10,8 @@
              v-for="post in data.posts"
              :key="post.id">
           <h1 class="title">{{post.title}}</h1>
-          <img src="https://placeimg.com/900/400/tech"
+          <img class="main-img"
+               src="https://placeimg.com/900/400/tech"
                alt="placeholder">
           <div class="post-content text-left"
                v-html="post.content">

@@ -75,6 +75,18 @@ body {
 .sub-title {
   font-size: 0.7em;
 }
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.main-content .tagline {
+  padding: 1em 0;
+  font-size: 2em;
+  font-weight: 200;
+}
+.main-content p {
+  font-size: 1.6em;
+}
 /* Alert */
 .alert-error {
   display: block;
@@ -95,13 +107,13 @@ body {
   padding: 10px;
   cursor: pointer;
   margin: 0 5px;
+  border: none;
 }
 .btn:hover {
   opacity: 0.75;
 }
 .btn:disabled {
   cursor: not-allowed;
-  border: none;
   background: var(--var-lightgrey-color);
 }
 .btn-primary {
@@ -133,6 +145,10 @@ body {
 /* Post layout */
 #post {
   margin: 0 2em;
+}
+#post .main-img {
+  width: 100%;
+  height: auto;
 }
 #post .post-content {
   font-size: 1.6em;
@@ -222,7 +238,7 @@ body {
   height: 34px;
 }
 /* Screen breaks */
-@media only screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .branding {
     display: flex;
     justify-content: center;
