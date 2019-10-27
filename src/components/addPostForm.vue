@@ -2,7 +2,7 @@
   <form id="form"
         class="add-post-form">
     <ApolloMutation :mutation="require('@/graphql/addPost.gql')"
-                    :variables="{title, content, userId: currentUser}"
+                    :variables="{title, content, slug, userId: currentUser}"
                     @done="handleDone">
       <template slot-scope="{ mutate, loading, error }">
         <div v-if="loading">loading...</div>

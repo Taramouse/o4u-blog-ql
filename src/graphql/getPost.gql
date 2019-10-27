@@ -3,6 +3,7 @@ query getPost($postId: uuid) {
       id
       title
       content
+      slug
       timestamp
       user {
         id

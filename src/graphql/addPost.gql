@@ -1,7 +1,8 @@
-mutation addPost($title: String, $content: String, $userId: String!) {
+mutation addPost($title: String, $content: String, $userId: String!, $slug: String) {
   insert_posts(objects: [{
     title: $title,
     content: $content,
+    slug: $slug,
     userid: $userId
   }]) {
     returning {
