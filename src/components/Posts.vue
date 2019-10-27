@@ -15,7 +15,8 @@
           <img src="https://placeimg.com/300/200/tech"
                alt="placeholder">
           <h3 class="card-title text-primary">{{post.title}}</h3>
-          <p class="card-content text-left">{{post.content}}</p>
+          <p class="card-content text-left"
+             v-html="post.content"></p>
           <div class="card-footer sub-title">
             <span>Created: {{post.timestamp | date('DD MMMM YYYY')}}</span>
             <span>Author: {{post.user.firstName}} {{post.user.lastName}}</span>

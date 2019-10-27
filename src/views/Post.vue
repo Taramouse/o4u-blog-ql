@@ -12,7 +12,9 @@
           <h1 class="title">{{post.title}}</h1>
           <img src="https://placeimg.com/900/400/tech"
                alt="placeholder">
-          <p>{{post.content}}</p>
+          <div class="text-left"
+               v-html="post.content">
+          </div>
           <p>Created on {{post.timestamp | date('DD MMMM YYYY')}}</p>
           <p>Author {{post.user.firstName}} {{post.user.lastName}}</p>
         </div>
