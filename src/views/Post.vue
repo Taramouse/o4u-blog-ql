@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div id="post">
     <ApolloQuery :query="require('@/graphql/getPost.gql')"
                  :variables="{postId: postId}">
       <template slot-scope="{result: {data, error, loading}}">
@@ -12,11 +12,11 @@
           <h1 class="title">{{post.title}}</h1>
           <img src="https://placeimg.com/900/400/tech"
                alt="placeholder">
-          <div class="text-left"
+          <div class="post-content text-left"
                v-html="post.content">
           </div>
           <p>Created on {{post.timestamp | date('DD MMMM YYYY')}}</p>
-          <p>Author {{post.user.firstName}} {{post.user.lastName}}</p>
+          <p>By {{post.user.firstName}} {{post.user.lastName}}</p>
         </div>
       </template>
     </ApolloQuery>

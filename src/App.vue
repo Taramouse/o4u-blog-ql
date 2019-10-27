@@ -114,15 +114,22 @@ body {
   background: var(--var-warning-color);
   color: white;
 }
-/* Post layout containers */
-.container {
+/* Posts layout containers */
+#posts .container {
   max-width: 1335px;
   margin: 0 auto;
 }
-.grid-row {
+#posts .grid-row {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+/* Post layout */
+#post {
+  margin: 0 2em;
+}
+#post .post-content {
+  font-size: 1.6em;
 }
 /* Card */
 .card {
