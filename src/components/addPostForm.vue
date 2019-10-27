@@ -90,7 +90,4 @@ export default {
 </script>
 
 <style>
-.add-post-form {
-  margin: 20px;
-}
 </style>

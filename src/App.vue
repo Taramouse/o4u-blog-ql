@@ -176,6 +176,9 @@ body {
   display: inline-block;
 }
 /* Form */
+.add-post-form {
+  margin: 20px;
+}
 .form {
   display: flex;
   flex-direction: column;
