@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <span class="branding"><img alt="Optimized4U Logo"
            src="../assets/profile.png"
            width=200px

@@ -2,13 +2,17 @@
   <div id="app">
     <Navbar />
     <router-view />
+    <Footer />
   </div>
 </template>
 <script>
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+
 export default {
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
@@ -39,9 +43,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  margin: 0 1em;
+  margin: 0;
   text-align: center;
   color: var(--var-grey-color);
+}
+#home,
+#showcase {
+  min-height: 73vh;
 }
 /* Typography */
 .text-center {
@@ -236,6 +244,13 @@ body {
   font-size: 16px;
   border: 1px solid #ccc;
   height: 34px;
+}
+/* Footer */
+#footer {
+  margin-top: 2em;
+  padding: 2em;
+  color: var(--var-grey-color);
+  background: var(--var-o4u-blue-color);
 }
 /* Screen breaks */
 @media (min-width: 600px) {
