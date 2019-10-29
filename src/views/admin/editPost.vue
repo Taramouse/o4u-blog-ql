@@ -92,8 +92,7 @@ export default {
           content: postContent,
           slug: this.slug,
           currentUser: this.currentUser
-        },
-        refetchQueries: ['getPosts']
+        }
       }).then(
         this.success = true
       ).catch(error => {
