@@ -1,4 +1,4 @@
-query getPosts($limit: Int) {
+subscription getPosts($limit: Int) {
   posts(limit: $limit, order_by: {timestamp: desc}) {
     id
     title
