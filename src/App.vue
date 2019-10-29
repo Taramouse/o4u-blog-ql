@@ -141,11 +141,11 @@ body {
   color: white;
 }
 /* Posts layout containers */
-#posts .container {
+.container {
   max-width: 1335px;
   margin: 0 auto;
 }
-#posts .grid-row {
+.grid-row {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -177,6 +177,8 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .card .card-title {
+  max-height: 38px;
+  overflow: hidden;
   font-size: 2em;
 }
 .card .card-content {
