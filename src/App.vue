@@ -164,8 +164,7 @@ body {
 /* Card */
 .card {
   border: 1px solid rgba(0, 0, 0, 0.23);
-  padding: 10px;
-  margin: 0.5em;
+  margin: 5px;
   flex-basis: 20%;
   position: relative;
   width: 312px;
@@ -177,11 +176,14 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .card .card-title {
-  max-height: 38px;
+  margin-top: 5px;
+  padding: 0 5px;
+  height: 75px;
   overflow: hidden;
   font-size: 2em;
 }
 .card .card-content {
+  padding: 0 5px;
   height: 58px;
   overflow: hidden;
 }
