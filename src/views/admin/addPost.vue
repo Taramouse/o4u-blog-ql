@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AddPostForm from '@/components/addPostForm'
+import AddPostForm from '@/components/AddPostForm'
 
 export default {
   name: 'addPost',
