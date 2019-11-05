@@ -84,6 +84,7 @@ export default {
   methods: {
     handleDone () {
       this.success = true
+      this.$router.push({ name: 'blog' })
     }
   }
 }

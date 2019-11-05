@@ -94,7 +94,8 @@ export default {
           currentUser: this.currentUser
         }
       }).then(
-        this.success = true
+        this.success = true,
+        this.$router.push({ name: 'blog' })
       ).catch(error => {
         this.error = error
       })
