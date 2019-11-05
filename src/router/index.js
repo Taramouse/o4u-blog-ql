@@ -32,12 +32,12 @@ export default new Router({
     {
       path: '/admin/add-post',
       name: 'addPost',
-      component: () => import(/* webpackChunkName: "addPost" */ '@/views/admin/addPost.vue')
+      component: () => import(/* webpackChunkName: "admin/addPost" */ '@/views/admin/addPost.vue')
     },
     {
       path: '/admin/editPost/:id',
       name: 'editPost',
-      component: () => import(/* webpackChunkName: "editPost" */ '@/views/admin/editPost.vue')
+      component: () => import(/* webpackChunkName: "admin/editPost" */ '@/views/admin/editPost.vue')
     }
   ]
 })
