@@ -4,8 +4,6 @@
       <ApolloQuery :query="require('@/graphql/getPost.gql')"
                    :variables="{postId: postId}">
         <template slot-scope="{result: {data, error, loading}}">
-          <div v-if="success"
-               class="alert-success">Post edited.</div>
           <div v-if="loading">loading...</div>
           <div v-else-if="error">{{error}}</div>
           <div class="form"
@@ -75,8 +73,7 @@ export default {
       currentUser: '',
       slug: '',
       error: null,
-      loading: 0,
-      success: false
+      loading: 0
     }
   },
   methods: {
@@ -94,7 +91,7 @@ export default {
           currentUser: this.currentUser
         }
       }).then(
-        this.success = true,
+        this.$emit('POST_EDIT_SUCCESS'),
         this.$router.push({ name: 'blog' })
       ).catch(error => {
         this.error = error

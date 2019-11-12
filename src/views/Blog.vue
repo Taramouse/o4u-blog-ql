@@ -1,5 +1,6 @@
 <template>
   <div class="blog">
+    <!-- TODO Success alert component -->
     <h1 class="title">Recent Posts</h1>
     <Posts />
   </div>

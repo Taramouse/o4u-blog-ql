@@ -7,8 +7,6 @@
       <template slot-scope="{ mutate, loading, error }">
         <div v-if="loading">loading...</div>
         <div v-else-if="error">{{error}}</div>
-        <div v-if="success"
-             class="alert-success">Post saved.</div>
         <div class="form">
           <label class="text-left"
                  for="title">Title</label>
@@ -22,11 +20,13 @@
                  for="content">Content</label>
           <textarea class="input-content"
                     type="text"
-                    placeholder="Post Conent"
+                    placeholder="Post Content"
                     name="content"
                     v-model="content"
                     required>
           </textarea>
+          <label class="text-left"
+                 for="slug">Post Slug (auto)</label>
           <input class="input-slug"
                  type="text"
                  placeholder=""
@@ -72,8 +72,7 @@ export default {
       content: '',
       currentUser: '',
       error: null,
-      loading: 0,
-      success: false
+      loading: 0
     }
   },
   computed: {
@@ -83,7 +82,7 @@ export default {
   },
   methods: {
     handleDone () {
-      this.success = true
+      this.$emit('NEW_POST_SAVED')
       this.$router.push({ name: 'blog' })
     }
   }
