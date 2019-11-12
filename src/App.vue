@@ -49,7 +49,7 @@ body {
 }
 #home,
 #showcase {
-  min-height: 73vh;
+  min-height: 85vh;
 }
 /* Typography */
 .text-center {
@@ -234,6 +234,10 @@ body {
   width: auto;
   height: 250px;
   margin-bottom: 2em;
+}
+.form .input-slug {
+  font-size: 1.3em;
+  margin-bottom: 10px;
 }
 .form .custom-select {
   display: relative;
