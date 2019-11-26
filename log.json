@@ -1,0 +1,24 @@
+{
+  "timestamp": "2019-11-12T16:45:17.406+0000",
+  "level": "info",
+  "type": "http-log",
+  "detail": {
+    "operation": {
+      "query_execution_time": 0.151156691,
+      "user_vars": {
+        "x-hasura-role": "admin"
+      },
+      "error": null,
+      "request_id": "3e422efd-88d3-47f5-9f3e-116d99a27fea",
+      "response_size": 116,
+      "query": null
+    },
+    "http_info": {
+      "status": 200,
+      "http_version": "HTTP/1.1",
+      "url": "/v1/query",
+      "ip": "192.168.0.10",
+      "method": "POST"
+    }
+  }
+}
